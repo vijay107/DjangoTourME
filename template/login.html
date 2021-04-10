@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn</title>
+    <title>Document</title>
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+            body{
+            background-image:url("https://get.wallhere.com/photo/Flight-plane-sky-color-line-1053859.jpg");
+            background-repeat:no-repeat;
+            background-origin: content-box;
+            background-size: cover;
+            opacity: 0.8;
+            overflow: hidden;
+            }
+            .container{
+            padding-top: 20px;
+            text-align: center;
+            margin-top:100px;
+            margin-left:450px;
+            width:30%;
+            height: 400px;
+            background-color: #b3d9ff;
+            border-radius: 5px;
+            filter: blur(0.5px);
+            background-image: linear-gradient(to bottom right, skyblue, blue);
+            box-shadow: 13px 10px grey;
+            padding-bottom: 20px;
+            }
+            .container:hover{
+            background-image: linear-gradient(to bottom, skyblue, blue);
+            box-shadow: none;
+            margin-top:110px;
+            margin-left:460px;
+            cursor: pointer;
+
+            }
+            .container h1{
+            font-family: 'Lobster', cursive;
+            font-size: 70px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            }
+            .container p{
+                font-family: 'Patrick Hand', cursive;
+                font-size: 25px;
+                color: black;
+                font-weight:bold;
+                margin-bottom: 50px;
+            }
+
+            .login input[type=text]{
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 20px;
+            background-image: url("https://www.microsoft.com/en-us/research/wp-content/uploads/2017/05/icon-people-circle-1-360x360.jpg");
+            width:50%;
+            padding-left: 5px;
+            height: 32px;
+            font-size: 15px;
+            background: white;
+            border-radius: 4px;
+            border: none;
+            border: 1px solid darkblue;
+            }
+            .login input[type=password]{
+            margin-bottom: 20px;
+            width:50%;
+            background-image: url("https://cdn2.iconfinder.com/data/icons/basic-ict-line-icons/100/13-512.png");
+            padding-left: 5px;
+            height: 32px;
+            font-size: 15px;
+            background: white;
+            border: none;
+            border-radius: 4px;
+            border: 1px solid darkblue;
+            }
+            .login input[type=submit]{
+            width:25%;
+            font-weight: bold;
+            height: 32px;
+            background: darkblue;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            box-shadow: 3px 3px black;
+            margin-top: 10px;
+
+            }
+            .login input[type=text]:hover{
+            border:none;
+            border-bottom: 4px solid black;
+            }
+            .login input[type=password]:hover{
+            border:none;
+            border-bottom: 4px solid black;
+            }
+            .login input[type=submit]:hover{
+            background: white;
+            color: black;
+            cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+    <form action="login", method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="one">
+                <h1>Welcome</h1>
+                <p>login to explore more</p>
+                <div class="login">
+                    <input type="text" name="username" placeholder="username"><br>
+                    <input type="password" name="password", placeholder="passsword"><br>
+                    <input type="submit" value="Login">
+                </div>
+            </div>
+        </div>
+    </form>
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+</body>
+</html>
